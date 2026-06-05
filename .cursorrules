@@ -1,0 +1,28 @@
+---
+name: frontend-design-yapti
+description: Create distinctive, production-grade frontend interfaces with high design quality for Yapti Learn.
+---
+
+This skill guides the creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics.
+For **Yapti Learn**, the aesthetic direction is "Modern Caribbean Indigenous Educational Platform".
+
+## Design Thinking
+
+- **Purpose**: Educational platform for indigenous communities in Bilwi, Puerto Cabezas.
+- **Tone**: Modern, clean, emotionally engaging, light, with a premium feel and subtle Caribbean/indigenous identity. NOT a generic Moodle.
+- **Color Palette**:
+  - Primary: `#0A84FF` (Vibrant Blue)
+  - Secondary: `#2EC4B6` (Turquoise/Teal)
+  - Accent: `#F4D35E` (Warm Gold/Yellow)
+  - Neutrals: `#F8FAFC`, `#E5E7EB`, `#0F172A`
+- **Identity**: Subtle cultural elements (Miskitu/Mayangna), soft patterns, intercultural iconography, discreet illustrations. No overloading.
+
+## Frontend Aesthetics Guidelines
+
+- **Typography**: Clean, readable, elegant fonts (e.g., modern sans-serifs with good readability for learning).
+- **Styling**: Soft glassmorphism, rounded corners, generous negative space, soft shadows.
+- **Motion**: Fluid animations using Framer Motion. Micro-interactions that surprise and delight without being overwhelming.
+- **Implementation**: Next.js 15, TailwindCSS, Shadcn UI. Fully responsive (mobile-first).
+
+NEVER use generic AI-generated aesthetics, boring university LMS patterns, or harsh corporate palettes.
+Interpret creatively and make choices that feel genuinely designed for this intercultural context.

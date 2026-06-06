@@ -6,46 +6,45 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 relative">
-      {/* Background decoration for mobile */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/5 via-white to-secondary/5 md:hidden" />
+    <div className="min-h-screen relative flex items-center justify-center p-4 sm:p-8">
       
-      {/* Form section */}
-      <div className="flex flex-col justify-center px-6 py-12 md:px-12 lg:px-24 z-10 relative bg-white/60 md:bg-white backdrop-blur-md">
-        <div className="w-full max-w-sm mx-auto">
-          {children}
-        </div>
-      </div>
-
-      {/* Visual section (hidden on mobile) */}
-      <div className="hidden md:flex flex-col justify-between p-12 bg-slate-900 text-white relative overflow-hidden">
-        
-        {/* Background Image of Bilwi */}
+      {/* 1. Full Screen Background Image */}
+      <div className="absolute inset-0 z-0">
         <Image 
           src="/images/bilwi-auth-bg.png" 
           alt="Cultura de Bilwi"
           fill
-          className="object-cover opacity-80"
+          className="object-cover"
           priority
         />
-        
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/20" />
-        
-        <div className="relative z-10">
-          <div className="w-12 h-12 bg-white/10 rounded-xl backdrop-blur flex items-center justify-center mb-6">
-            <div className="w-6 h-6 border-2 border-white rounded-full" />
-          </div>
-        </div>
+        {/* Soft elegant overlay to ensure the floating card pops and text is readable */}
+        <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]" />
+      </div>
 
-        <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 drop-shadow-md">
-            Bienvenido a Yapti Learn
-          </h2>
-          <p className="text-xl text-slate-200 font-light max-w-md drop-shadow">
-            La educación llega a cada comunidad. Conectando saberes ancestrales con el futuro digital.
+      {/* 2. Floating Content Container */}
+      <div className="relative z-10 w-full max-w-5xl flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        
+        {/* Left Side: Cultural Text / Branding */}
+        <div className="hidden md:flex flex-col flex-1 text-white">
+          <div className="w-16 h-16 bg-white/20 rounded-2xl backdrop-blur-md flex items-center justify-center mb-8 border border-white/30 shadow-xl">
+            <div className="w-8 h-8 border-4 border-white rounded-full" />
+          </div>
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg leading-tight">
+            Bienvenido a <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-300">
+              Yapti Learn
+            </span>
+          </h1>
+          <p className="text-xl text-slate-100 font-light max-w-md drop-shadow-md leading-relaxed">
+            La educación llega a cada comunidad. Conectando nuestros saberes ancestrales con el futuro digital.
           </p>
         </div>
+
+        {/* Right Side: The Glassmorphic Form Card */}
+        <div className="w-full max-w-md bg-white/95 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl border border-white/50 p-8 sm:p-10 transform transition-all hover:scale-[1.01]">
+          {children}
+        </div>
+
       </div>
     </div>
   );

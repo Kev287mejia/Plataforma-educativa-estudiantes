@@ -63,7 +63,8 @@ export default function DashboardPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               
               {/* Curso 1 */}
-              <motion.div whileHover={{ y: -4 }} className="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all flex flex-col">
+              <motion.div whileHover={{ y: -6, scale: 1.01 }} className="bg-white rounded-[2rem] border border-slate-100 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col group cursor-pointer relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-50 group-hover:scale-110 transition-transform duration-500" />
                 <div className="flex justify-between items-start mb-4">
                   <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                     <BookOpen className="w-6 h-6" />
@@ -88,7 +89,8 @@ export default function DashboardPage() {
               </motion.div>
 
               {/* Curso 2 */}
-              <motion.div whileHover={{ y: -4 }} className="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-lg transition-all flex flex-col">
+              <motion.div whileHover={{ y: -6, scale: 1.01 }} className="bg-white rounded-[2rem] border border-slate-100 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 flex flex-col group cursor-pointer relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10 opacity-50 group-hover:scale-110 transition-transform duration-500" />
                 <div className="flex justify-between items-start mb-4">
                   <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
                     <BookOpen className="w-6 h-6" />
@@ -118,9 +120,9 @@ export default function DashboardPage() {
           {/* LECCIONES RECIENTES */}
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-2">Lecciones Recientes</h2>
-            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <div className="divide-y divide-slate-100">
-                <div className="p-4 flex items-center gap-4 hover:bg-slate-50 transition-colors cursor-pointer">
+            <div className="bg-white/60 backdrop-blur-xl rounded-[2rem] border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3">
+              <div className="space-y-2">
+                <div className="p-4 flex items-center gap-4 hover:bg-white rounded-2xl transition-colors cursor-pointer group">
                   <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
                     <PlayCircle className="w-5 h-5" />
                   </div>
@@ -131,7 +133,7 @@ export default function DashboardPage() {
                   <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                 </div>
                 
-                <div className="p-4 flex items-center gap-4 hover:bg-slate-50 transition-colors cursor-pointer bg-blue-50/50">
+                <div className="p-4 flex items-center gap-4 bg-white shadow-sm shadow-blue-500/5 rounded-2xl cursor-pointer border border-blue-50/50">
                   <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-md shadow-primary/20">
                     <PlayCircle className="w-5 h-5 ml-0.5" />
                   </div>
@@ -142,7 +144,7 @@ export default function DashboardPage() {
                   <span className="text-xs font-semibold text-primary bg-white px-2 py-1 rounded-md border border-blue-100">Viendo</span>
                 </div>
 
-                <div className="p-4 flex items-center gap-4 hover:bg-slate-50 transition-colors cursor-pointer">
+                <div className="p-4 flex items-center gap-4 hover:bg-white rounded-2xl transition-colors cursor-pointer group">
                   <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 shrink-0 border border-slate-200">
                     <Clock className="w-4 h-4" />
                   </div>
@@ -161,7 +163,7 @@ export default function DashboardPage() {
         <div className="space-y-8">
           
           {/* PROGRESO ACADÉMICO */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <section className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-primary" />
               Progreso Académico
@@ -201,7 +203,7 @@ export default function DashboardPage() {
           </section>
 
           {/* MATERIAL DESCARGABLE */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <section className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300">
             <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
               <Download className="w-5 h-5 text-slate-600" />
               Material Descargable
@@ -236,7 +238,7 @@ export default function DashboardPage() {
           </section>
 
           {/* ACTIVIDAD RECIENTE */}
-          <section className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <section className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300">
             <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
               <Clock className="w-5 h-5 text-slate-600" />
               Actividad Reciente

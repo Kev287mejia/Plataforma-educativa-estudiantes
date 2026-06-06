@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AuthLayout({
   children,
 }: {
@@ -17,10 +19,18 @@ export default function AuthLayout({
 
       {/* Visual section (hidden on mobile) */}
       <div className="hidden md:flex flex-col justify-between p-12 bg-slate-900 text-white relative overflow-hidden">
-        {/* Abstract cultural illustration using CSS shapes/gradients */}
-        <div className="absolute inset-0 opacity-20 yapti-pattern" />
-        <div className="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-primary blur-[120px]" />
-        <div className="absolute -bottom-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-secondary blur-[120px]" />
+        
+        {/* Background Image of Bilwi */}
+        <Image 
+          src="/images/bilwi-auth-bg.png" 
+          alt="Cultura de Bilwi"
+          fill
+          className="object-cover opacity-80"
+          priority
+        />
+        
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/20" />
         
         <div className="relative z-10">
           <div className="w-12 h-12 bg-white/10 rounded-xl backdrop-blur flex items-center justify-center mb-6">
@@ -29,10 +39,10 @@ export default function AuthLayout({
         </div>
 
         <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 drop-shadow-md">
             Bienvenido a Yapti Learn
           </h2>
-          <p className="text-xl text-slate-300 font-light max-w-md">
+          <p className="text-xl text-slate-200 font-light max-w-md drop-shadow">
             La educación llega a cada comunidad. Conectando saberes ancestrales con el futuro digital.
           </p>
         </div>

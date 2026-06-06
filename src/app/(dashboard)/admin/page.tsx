@@ -38,13 +38,17 @@ export default function TeacherPanelPage() {
     }, 1500);
   };
 
-  const students = [
-    { name: "María González", email: "maria.g@email.com", progress: 85, course: "Historia Miskitu" },
-    { name: "Juan Pérez", email: "juan.p@email.com", progress: 40, course: "Idioma Básico" },
-    { name: "Ana Martínez", email: "ana.m@email.com", progress: 100, course: "Historia Miskitu" },
-    { name: "Carlos Ruiz", email: "carlos.r@email.com", progress: 15, course: "Geografía" },
-    { name: "Luisa Fernández", email: "luisa.f@email.com", progress: 60, course: "Idioma Básico" },
-  ];
+  const [students, setStudents] = useState([
+    { id: 1, name: "María González", email: "maria.g@email.com", progress: 85, role: "estudiante" },
+    { id: 2, name: "Juan Pérez", email: "juan.p@email.com", progress: 40, role: "estudiante" },
+    { id: 3, name: "Prof. Ana Martínez", email: "ana.m@email.com", progress: 100, role: "docente" },
+    { id: 4, name: "Carlos Ruiz", email: "carlos.r@email.com", progress: 15, role: "estudiante" },
+    { id: 5, name: "Luisa Fernández", email: "luisa.f@email.com", progress: 60, role: "estudiante" },
+  ]);
+
+  const handleRoleChange = (id: number, newRole: string) => {
+    setStudents(students.map(s => s.id === id ? { ...s, role: newRole } : s));
+  };
 
   return (
     <div className="space-y-8 pb-10 max-w-7xl mx-auto">
@@ -198,27 +202,47 @@ export default function TeacherPanelPage() {
 
           <div className="flex-1 overflow-auto pr-2">
             <div className="space-y-4">
-              {students.map((student, index) => (
-                <div key={index} className="flex items-center justify-between p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-colors">
+              {students.map((student) => (
+                <div key={student.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-colors gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-bold text-sm">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${student.role === 'docente' ? 'bg-purple-100 text-purple-600' : 'bg-slate-200 text-slate-600'}`}>
                       {student.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-slate-900 text-sm">{student.name}</p>
-                      <p className="text-xs text-slate-500">{student.course}</p>
+                      <p className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        {student.name}
+                        {student.role === 'docente' && <Shield className="w-3 h-3 text-purple-500" />}
+                      </p>
+                      <p className="text-xs text-slate-500">{student.email}</p>
                     </div>
                   </div>
                   
-                  <div className="text-right flex flex-col items-end gap-1">
-                    <span className={`text-sm font-bold ${student.progress === 100 ? 'text-emerald-600' : 'text-slate-700'}`}>
-                      {student.progress}%
-                    </span>
-                    <div className="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div 
-                        className={`h-full rounded-full ${student.progress === 100 ? 'bg-emerald-500' : 'bg-primary'}`} 
-                        style={{ width: `${student.progress}%` }} 
-                      />
+                  <div className="flex items-center gap-4 sm:ml-auto">
+                    {/* Role Selector */}
+                    <select 
+                      value={student.role}
+                      onChange={(e) => handleRoleChange(student.id, e.target.value)}
+                      className={`text-xs font-semibold px-2 py-1 rounded-md border focus:outline-none transition-colors ${
+                        student.role === 'docente' 
+                          ? 'bg-purple-50 text-purple-700 border-purple-200' 
+                          : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                      }`}
+                    >
+                      <option value="estudiante">Estudiante</option>
+                      <option value="docente">Docente</option>
+                    </select>
+
+                    {/* Progress */}
+                    <div className="text-right flex flex-col items-end gap-1 w-20">
+                      <span className={`text-sm font-bold ${student.progress === 100 ? 'text-emerald-600' : 'text-slate-700'}`}>
+                        {student.progress}%
+                      </span>
+                      <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div 
+                          className={`h-full rounded-full ${student.progress === 100 ? 'bg-emerald-500' : 'bg-primary'}`} 
+                          style={{ width: `${student.progress}%` }} 
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

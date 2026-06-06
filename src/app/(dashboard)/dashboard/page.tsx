@@ -81,9 +81,9 @@ export default function DashboardPage() {
                   <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                     <div className="h-full bg-primary rounded-full w-[65%]" />
                   </div>
-                  <button className="w-full mt-4 py-2 bg-slate-50 text-primary font-medium rounded-xl hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 text-sm">
+                  <Link href="/courses/historia-miskitu" className="w-full mt-4 py-2 bg-slate-50 text-primary font-medium rounded-xl hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 text-sm">
                     <PlayCircle className="w-4 h-4" /> Continuar
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
 
@@ -106,9 +106,9 @@ export default function DashboardPage() {
                   <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                     <div className="h-full bg-emerald-500 rounded-full w-[30%]" />
                   </div>
-                  <button className="w-full mt-4 py-2 bg-slate-50 text-emerald-600 font-medium rounded-xl hover:bg-emerald-50 transition-colors flex items-center justify-center gap-2 text-sm">
+                  <Link href="/courses/idioma-basico" className="w-full mt-4 py-2 bg-slate-50 text-emerald-600 font-medium rounded-xl hover:bg-emerald-50 transition-colors flex items-center justify-center gap-2 text-sm">
                     <PlayCircle className="w-4 h-4" /> Continuar
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
 

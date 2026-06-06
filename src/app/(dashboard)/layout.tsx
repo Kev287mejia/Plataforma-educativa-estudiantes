@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -26,6 +26,7 @@ const sidebarLinks = [
   { icon: Target, label: "Mi Progreso", href: "/progress" },
   { icon: Compass, label: "Cultura", href: "/intercultural" },
   { icon: Award, label: "Evaluaciones", href: "/quiz" },
+  { icon: Award, label: "Certificados", href: "/certificates" },
   { icon: Settings, label: "Configuración", href: "/settings" },
 ];
 
@@ -81,20 +82,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsSidebarOpen(false)}
-            className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 md:hidden"
           />
         )}
       </AnimatePresence>
 
       {/* Sidebar */}
-      <motion.aside 
-        className={`fixed lg:sticky top-0 left-0 h-screen w-72 bg-white border-r border-slate-200 z-50 transform transition-transform duration-300 ease-in-out lg:transform-none flex flex-col ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+      <aside 
+        className="sticky top-0 left-0 h-screen w-72 bg-white border-r border-slate-200 z-50 flex flex-col shrink-0"
       >
         <div className="p-6 flex items-center justify-between">
           <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
             Yapti Learn
           </h1>
-          <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden text-slate-500">
+          <button onClick={() => setIsSidebarOpen(false)} className="md:hidden text-slate-500">
             <X className="w-6 h-6" />
           </button>
         </div>
@@ -149,14 +150,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             Cerrar Sesión
           </button>
         </div>
-      </motion.aside>
+      </aside>
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0">
-        <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 h-16 flex items-center justify-between px-4 lg:px-8">
+        <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 h-16 flex items-center justify-between px-4 md:px-8">
           <button 
             onClick={() => setIsSidebarOpen(true)}
-            className="lg:hidden p-2 -ml-2 text-slate-600 hover:bg-slate-100 rounded-lg"
+            className="md:hidden p-2 -ml-2 text-slate-600 hover:bg-slate-100 rounded-lg"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -168,9 +169,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <Bell className="w-5 h-5" />
               <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white" />
             </button>
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold text-sm shadow-sm ring-2 ring-white">
+            <Link href="/settings" className="w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold text-sm shadow-sm ring-2 ring-white hover:scale-105 transition-transform cursor-pointer">
               {userInitials}
-            </div>
+            </Link>
           </div>
         </header>
 
